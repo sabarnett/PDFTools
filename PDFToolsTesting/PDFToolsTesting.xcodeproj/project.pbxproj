@@ -13,7 +13,24 @@
 		E80809232A4DB6A70020462D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E80809222A4DB6A70020462D /* Preview Assets.xcassets */; };
 		E80809412A4DB8D00020462D /* TestViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E80809402A4DB8D00020462D /* TestViewer.swift */; };
 		E80809432A4DB8DD0020462D /* TestGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E80809422A4DB8DD0020462D /* TestGenerator.swift */; };
+		E8DE3C852A4DC07A00C3EE65 /* PDFTools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8DE3C842A4DC07A00C3EE65 /* PDFTools.framework */; };
+		E8DE3C862A4DC07A00C3EE65 /* PDFTools.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E8DE3C842A4DC07A00C3EE65 /* PDFTools.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E8DE3C8B2A4DC3F500C3EE65 /* RandomActs.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E8DE3C8A2A4DC3F500C3EE65 /* RandomActs.pdf */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		E8DE3C872A4DC07A00C3EE65 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				E8DE3C862A4DC07A00C3EE65 /* PDFTools.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		E80809182A4DB6A60020462D /* PDFToolsTesting.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PDFToolsTesting.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -23,6 +40,8 @@
 		E80809222A4DB6A70020462D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		E80809402A4DB8D00020462D /* TestViewer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewer.swift; sourceTree = "<group>"; };
 		E80809422A4DB8DD0020462D /* TestGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestGenerator.swift; sourceTree = "<group>"; };
+		E8DE3C842A4DC07A00C3EE65 /* PDFTools.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PDFTools.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E8DE3C8A2A4DC3F500C3EE65 /* RandomActs.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = RandomActs.pdf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -30,6 +49,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E8DE3C852A4DC07A00C3EE65 /* PDFTools.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -41,6 +61,7 @@
 			children = (
 				E808091A2A4DB6A60020462D /* PDFToolsTesting */,
 				E80809192A4DB6A60020462D /* Products */,
+				E8DE3C832A4DC07A00C3EE65 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -59,7 +80,7 @@
 				E808091D2A4DB6A60020462D /* ContentView.swift */,
 				E808091F2A4DB6A70020462D /* Assets.xcassets */,
 				E80809212A4DB6A70020462D /* Preview Content */,
-				E80809402A4DB8D00020462D /* TestViewer.swift */,
+				E8DE3C882A4DC16400C3EE65 /* Viewer */,
 				E80809422A4DB8DD0020462D /* TestGenerator.swift */,
 			);
 			path = PDFToolsTesting;
@@ -73,6 +94,23 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		E8DE3C832A4DC07A00C3EE65 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E8DE3C842A4DC07A00C3EE65 /* PDFTools.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E8DE3C882A4DC16400C3EE65 /* Viewer */ = {
+			isa = PBXGroup;
+			children = (
+				E80809402A4DB8D00020462D /* TestViewer.swift */,
+				E8DE3C8A2A4DC3F500C3EE65 /* RandomActs.pdf */,
+			);
+			path = Viewer;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -83,6 +121,7 @@
 				E80809142A4DB6A60020462D /* Sources */,
 				E80809152A4DB6A60020462D /* Frameworks */,
 				E80809162A4DB6A60020462D /* Resources */,
+				E8DE3C872A4DC07A00C3EE65 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -133,6 +172,7 @@
 			files = (
 				E80809232A4DB6A70020462D /* Preview Assets.xcassets in Resources */,
 				E80809202A4DB6A70020462D /* Assets.xcassets in Resources */,
+				E8DE3C8B2A4DC3F500C3EE65 /* RandomActs.pdf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

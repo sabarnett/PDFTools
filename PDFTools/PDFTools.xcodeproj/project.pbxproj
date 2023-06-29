@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		E808092E2A4DB7C40020462D /* PDFViewUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = E808092A2A4DB7C40020462D /* PDFViewUI.swift */; };
 		E808092F2A4DB7C40020462D /* ShareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E808092B2A4DB7C40020462D /* ShareView.swift */; };
-		E80809302A4DB7C40020462D /* PDFViewPlaying.swift in Sources */ = {isa = PBXBuildFile; fileRef = E808092C2A4DB7C40020462D /* PDFViewPlaying.swift */; };
+		E80809302A4DB7C40020462D /* PDFViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E808092C2A4DB7C40020462D /* PDFViewer.swift */; };
 		E80809312A4DB7C40020462D /* RandomActs.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E808092D2A4DB7C40020462D /* RandomActs.pdf */; };
 		E808093A2A4DB7D70020462D /* PDFGeneratorUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = E80809332A4DB7D70020462D /* PDFGeneratorUI.swift */; };
 		E808093B2A4DB7D70020462D /* NSAttributedString+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E80809352A4DB7D70020462D /* NSAttributedString+Extension.swift */; };
@@ -24,8 +24,8 @@
 /* Begin PBXFileReference section */
 		E808092A2A4DB7C40020462D /* PDFViewUI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PDFViewUI.swift; sourceTree = "<group>"; };
 		E808092B2A4DB7C40020462D /* ShareView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareView.swift; sourceTree = "<group>"; };
-		E808092C2A4DB7C40020462D /* PDFViewPlaying.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PDFViewPlaying.swift; sourceTree = "<group>"; };
-		E808092D2A4DB7C40020462D /* RandomActs.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = RandomActs.pdf; sourceTree = "<group>"; };
+		E808092C2A4DB7C40020462D /* PDFViewer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PDFViewer.swift; sourceTree = "<group>"; };
+		E808092D2A4DB7C40020462D /* RandomActs.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = RandomActs.pdf; path = ../../../PDFToolsTesting/PDFToolsTesting/Viewer/RandomActs.pdf; sourceTree = "<group>"; };
 		E80809332A4DB7D70020462D /* PDFGeneratorUI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PDFGeneratorUI.swift; sourceTree = "<group>"; };
 		E80809352A4DB7D70020462D /* NSAttributedString+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSAttributedString+Extension.swift"; sourceTree = "<group>"; };
 		E80809362A4DB7D70020462D /* PDFParagraphStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PDFParagraphStyle.swift; sourceTree = "<group>"; };
@@ -53,7 +53,7 @@
 			children = (
 				E808092A2A4DB7C40020462D /* PDFViewUI.swift */,
 				E808092B2A4DB7C40020462D /* ShareView.swift */,
-				E808092C2A4DB7C40020462D /* PDFViewPlaying.swift */,
+				E808092C2A4DB7C40020462D /* PDFViewer.swift */,
 				E808092D2A4DB7C40020462D /* RandomActs.pdf */,
 			);
 			path = PDFViewer;
@@ -187,7 +187,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E80809302A4DB7C40020462D /* PDFViewPlaying.swift in Sources */,
+				E80809302A4DB7C40020462D /* PDFViewer.swift in Sources */,
 				E808093E2A4DB7D70020462D /* PDFContext+Extensions.swift in Sources */,
 				E808093A2A4DB7D70020462D /* PDFGeneratorUI.swift in Sources */,
 				E808092F2A4DB7C40020462D /* ShareView.swift in Sources */,

@@ -8,19 +8,22 @@
 
 import SwiftUI
 
-struct PDFViewPlaying: View {
+public struct PDFViewer: View {
 
     @Environment(\.colorScheme) private var colorScheme
-    @State private var pdfData: Data?
+    private var pdfData: Data?
     @State private var showShareSheet: Bool = false
 
-    var body: some View {
+    public init(pdfData: Data?) {
+        self.pdfData = pdfData
+    }
+    
+    public var body: some View {
         VStack {
             PDFViewUI(data: pdfData, autoScales: true)
                 .overlay(
                     Button(action: {
                         showShareSheet = true
-                        //self.reportItems = ActivityItem(items: pdfData as Any)
                     }, label: {
                         Image(systemName: "square.and.arrow.up")
                             .scaleEffect(1)
@@ -32,11 +35,6 @@ struct PDFViewPlaying: View {
                     .offset(x: -10, y: 10),
                     alignment: .topTrailing)
         }
-        .onAppear {
-            if let pdfUrl = Bundle.main.url(forResource: "RandomActs", withExtension: "pdf") {
-                self.pdfData = try? Data.init(contentsOf: pdfUrl)
-            }
-        }
         .navigationTitle(Text("PDF View"))
         .navigationBarTitleDisplayMode(.inline)
         .sheet(isPresented: $showShareSheet) {
@@ -47,8 +45,8 @@ struct PDFViewPlaying: View {
     }
 }
 
-struct PDFViewPlaying_Previews: PreviewProvider {
+struct PDFViewer_Previews: PreviewProvider {
     static var previews: some View {
-        PDFViewPlaying()
+        PDFViewer(pdfData: nil)
     }
 }
