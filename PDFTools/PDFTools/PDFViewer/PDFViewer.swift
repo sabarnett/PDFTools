@@ -17,7 +17,7 @@ public struct PDFViewer: View {
     public init(pdfData: Data?) {
         self.pdfData = pdfData
     }
-    
+
     public var body: some View {
         VStack {
             PDFViewUI(data: pdfData, autoScales: true)

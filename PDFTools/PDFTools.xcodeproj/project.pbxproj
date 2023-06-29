@@ -129,6 +129,7 @@
 				E8D014DE2A4DB134009509C4 /* Sources */,
 				E8D014DF2A4DB134009509C4 /* Frameworks */,
 				E8D014E02A4DB134009509C4 /* Resources */,
+				E8DE3C8C2A4DC76300C3EE65 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -181,6 +182,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		E8DE3C8C2A4DC76300C3EE65 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nswiftlint\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		E8D014DE2A4DB134009509C4 /* Sources */ = {
