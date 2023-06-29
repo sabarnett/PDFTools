@@ -11,6 +11,8 @@
 		E808091E2A4DB6A60020462D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E808091D2A4DB6A60020462D /* ContentView.swift */; };
 		E80809202A4DB6A70020462D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E808091F2A4DB6A70020462D /* Assets.xcassets */; };
 		E80809232A4DB6A70020462D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E80809222A4DB6A70020462D /* Preview Assets.xcassets */; };
+		E80809412A4DB8D00020462D /* TestViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E80809402A4DB8D00020462D /* TestViewer.swift */; };
+		E80809432A4DB8DD0020462D /* TestGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E80809422A4DB8DD0020462D /* TestGenerator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +21,8 @@
 		E808091D2A4DB6A60020462D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		E808091F2A4DB6A70020462D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E80809222A4DB6A70020462D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		E80809402A4DB8D00020462D /* TestViewer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewer.swift; sourceTree = "<group>"; };
+		E80809422A4DB8DD0020462D /* TestGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestGenerator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +59,8 @@
 				E808091D2A4DB6A60020462D /* ContentView.swift */,
 				E808091F2A4DB6A70020462D /* Assets.xcassets */,
 				E80809212A4DB6A70020462D /* Preview Content */,
+				E80809402A4DB8D00020462D /* TestViewer.swift */,
+				E80809422A4DB8DD0020462D /* TestGenerator.swift */,
 			);
 			path = PDFToolsTesting;
 			sourceTree = "<group>";
@@ -138,6 +144,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				E808091E2A4DB6A60020462D /* ContentView.swift in Sources */,
+				E80809432A4DB8DD0020462D /* TestGenerator.swift in Sources */,
+				E80809412A4DB8D00020462D /* TestViewer.swift in Sources */,
 				E808091C2A4DB6A60020462D /* PDFToolsTestingApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
