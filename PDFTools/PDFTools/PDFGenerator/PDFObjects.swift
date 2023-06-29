@@ -9,7 +9,7 @@
 import SwiftUI
 
 public class PDFElement {
-    public func render(context: UIGraphicsPDFRendererContext, pageData: PageData) {
+    public func render(context: UIGraphicsPDFRendererContext, pageData: PDFPageData) {
         print("PDFElement base class render - This should never be called and will do nothing.")
     }
 }
@@ -30,7 +30,7 @@ public class PDFNewPage: PDFElement {
         remainingSpaceCheck = ifRemainingSpaceIsLessThan
     }
 
-    override public func render(context: UIGraphicsPDFRendererContext, pageData: PageData) {
+    override public func render(context: UIGraphicsPDFRendererContext, pageData: PDFPageData) {
         if remainingSpaceCheck != .infinity {
             let spaceLeft = pageData.pageRect.height - pageData.bottomMargin - pageData.cursor
             if spaceLeft > remainingSpaceCheck {
@@ -54,7 +54,7 @@ public class PDFSetCursor: PDFElement {
         self.newCursor = newCursor
     }
 
-    override public func render(context: UIGraphicsPDFRendererContext, pageData: PageData) {
+    override public func render(context: UIGraphicsPDFRendererContext, pageData: PDFPageData) {
         print("PDFSetCursor render")
         pageData.cursor = context.checkContext(pageData: pageData, newCursor: newCursor)
     }
@@ -82,7 +82,7 @@ public class PDFLine: PDFElement {
         self.lineWidth = lineWidth
     }
 
-    override public func render(context: UIGraphicsPDFRendererContext, pageData: PageData) {
+    override public func render(context: UIGraphicsPDFRendererContext, pageData: PDFPageData) {
         print("PDFLine render")
         if self.startPoint == nil {
             self.startPoint = CGPoint(x: pageData.leftMargin, y: pageData.cursor)
@@ -123,7 +123,7 @@ public class PDFBox: PDFElement {
         self.fillColor = fillColor
     }
 
-    override public func render(context: UIGraphicsPDFRendererContext, pageData: PageData) {
+    override public func render(context: UIGraphicsPDFRendererContext, pageData: PDFPageData) {
 
         if self.position == nil { self.position = CGPoint(x: pageData.leftMargin, y: pageData.cursor) }
         if self.width == nil { self.width = pageData.pageRect.width - pageData.margins }
@@ -153,7 +153,7 @@ public class PDFParagraph: PDFElement {
         self.text = text
     }
 
-    override public func render(context: UIGraphicsPDFRendererContext, pageData: PageData) {
+    override public func render(context: UIGraphicsPDFRendererContext, pageData: PDFPageData) {
         let textItems = text.split(separator: "\n", omittingEmptySubsequences: true)
         for text in textItems {
             let paraText = String(text)
@@ -183,7 +183,7 @@ public class PDFImage: PDFElement {
         self.size = size
     }
 
-    override public func render(context: UIGraphicsPDFRendererContext, pageData: PageData) {
+    override public func render(context: UIGraphicsPDFRendererContext, pageData: PDFPageData) {
         if size == nil { size = CGSize(width: 200, height: 200)}
         if location == nil { location = CGPoint(x: (pageData.pageRect.width - size!.width) / 2, y: pageData.cursor) }
 

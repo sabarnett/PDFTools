@@ -11,7 +11,7 @@ import PDFKit
 
 extension UIGraphicsPDFRendererContext {
 
-    func line(pageData: PageData, from startPoint: CGPoint, to endPoint: CGPoint, lineWidth: CGFloat = 2) {
+    func line(pageData: PDFPageData, from startPoint: CGPoint, to endPoint: CGPoint, lineWidth: CGFloat = 2) {
 
         let context = self.cgContext
 
@@ -28,7 +28,7 @@ extension UIGraphicsPDFRendererContext {
         }
     }
 
-    func box(pageData: PageData, startPoint: CGPoint, width: CGFloat, height: CGFloat,
+    func box(pageData: PDFPageData, startPoint: CGPoint, width: CGFloat, height: CGFloat,
              lineWidth: CGFloat, fillColor: UIColor) {
 
         let context = self.cgContext
@@ -51,7 +51,7 @@ extension UIGraphicsPDFRendererContext {
         }
     }
 
-    func image(pageData: PageData, image: UIImage, at position: CGPoint, size dimensions: CGSize) {
+    func image(pageData: PDFPageData, image: UIImage, at position: CGPoint, size dimensions: CGSize) {
 
         let imageRect = CGRect(x: position.x, y: position.y,
                                width: dimensions.width, height: dimensions.height)
@@ -63,12 +63,12 @@ extension UIGraphicsPDFRendererContext {
         }
     }
 
-    func newPage(pageData: PageData) {
+    func newPage(pageData: PDFPageData) {
         beginPage()
         pageData.cursor = pageData.topMargin
     }
 
-    func text(pageData: PageData, text: String, inStyle style: PDFParagraphStyle) {
+    func text(pageData: PDFPageData, text: String, inStyle style: PDFParagraphStyle) {
         let textFont = UIFont.systemFont(ofSize: style.fontSize, weight: style.fontWeight)
 
         let paragraphStyle = NSMutableParagraphStyle()
@@ -98,7 +98,7 @@ extension UIGraphicsPDFRendererContext {
                                             newCursor: rect.origin.y + textHeight + style.spaceAfter)
     }
 
-    func checkContext(pageData: PageData, newCursor: CGFloat) -> CGFloat {
+    func checkContext(pageData: PDFPageData, newCursor: CGFloat) -> CGFloat {
         if newCursor > pageData.pageRect.height - pageData.bottomMargin {
             beginPage()
             return pageData.topMargin
