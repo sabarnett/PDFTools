@@ -55,7 +55,6 @@ public class PDFSetCursor: PDFElement {
     }
 
     override public func render(context: UIGraphicsPDFRendererContext, pageData: PDFPageData) {
-        print("PDFSetCursor render")
         pageData.cursor = context.checkContext(pageData: pageData, newCursor: newCursor)
     }
 }
@@ -83,7 +82,6 @@ public class PDFLine: PDFElement {
     }
 
     override public func render(context: UIGraphicsPDFRendererContext, pageData: PDFPageData) {
-        print("PDFLine render")
         if self.startPoint == nil {
             self.startPoint = CGPoint(x: pageData.leftMargin, y: pageData.cursor)
         }
