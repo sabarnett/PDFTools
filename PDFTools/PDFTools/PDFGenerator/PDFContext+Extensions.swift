@@ -66,6 +66,7 @@ extension UIGraphicsPDFRendererContext {
     func newPage(pageData: PDFPageData) {
         beginPage()
         pageData.cursor = pageData.topMargin
+        pageData.pageNumber += 1
     }
 
     func text(pageData: PDFPageData, text: String, inStyle style: PDFParagraphStyle) {
@@ -100,7 +101,7 @@ extension UIGraphicsPDFRendererContext {
 
     func checkContext(pageData: PDFPageData, newCursor: CGFloat) -> CGFloat {
         if newCursor > pageData.pageRect.height - pageData.bottomMargin {
-            beginPage()
+            newPage(pageData: pageData)
             return pageData.topMargin
         }
         return newCursor
