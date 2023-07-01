@@ -1,50 +1,83 @@
+#!/bin/zsh
+setopt NOGLOB
+
 cd "/Users/stevenbarnett/Documents/Code Files/Apps/Frameworks/PDFGenerator/PDFTools/"
 
-xcodebuild clean -scheme PDFTools -destination 'generic/platform=iOS' -quiet
-xcodebuild clean -scheme PDFTools -destination 'generic/platform=iOS Simulator' -quiet
+scheme="PDFTools"
 
-echo '*** Delete the iphone archive and rebuild'
-rm -r './build/PDFTools.framework-iphoneos.xcarchive'
+destinations=("generic/platform=iOS" 
+			  "generic/platform=iOS Simulator")
+			  
+archives=("./build/$scheme.framework-iphoneos.xcarchive" 
+		  "./build/$scheme.framework-iphonesimulator.xcarchive")
 
-echo 'Build the documentation'
-xcodebuild docbuild \
--scheme PDFTools \
--destination 'generic/platform=iOS' \
--quiet
+frameworks=("./build/$scheme.framework-iphoneos.xcarchive/Products/Library/Frameworks/$scheme.framework"
+			"./build/$scheme.framework-iphonesimulator.xcarchive/Products/Library/Frameworks/$scheme.framework")
 
-echo 'Build the framework'
-xcodebuild archive \
--scheme PDFTools \
--configuration Release \
--destination 'generic/platform=iOS' \
--archivePath './build/PDFTools.framework-iphoneos.xcarchive' \
--quiet \
-SKIP_INSTALL=NO \
-BUILD_LIBRARY_FOR_DISTRIBUTION=YES 
+xcframework="./build/$scheme.xcframework"
 
-echo '*** Delete iphone simulator archive and rebuild'
-rm -r './build/PDFTools.framework-iphonesimulator.xcarchive'
+# ----------------------------------------------------------------------
+#
+# This is the build process. It is driven by the above variables
+#
+# ----------------------------------------------------------------------
 
-echo 'Build the documentation'
-xcodebuild docbuild \
--scheme PDFTools \
--destination 'generic/platform=iOS Simulator' \
--quiet
+length=${#destinations[@]}
+for (( ix=1; ix<=length; ix++ ));
+do
+   #
+   # Clean the target project and remove any previously generated archive
+   #
+   echo "Clean ${destinations[$ix]}"
+   xcodebuild clean \
+   -scheme $scheme \
+   -destination "${destinations[$ix]}" \
+   -configuration Debug \
+   -quiet
 
-echo 'Build the framework'
-xcodebuild archive \
--scheme PDFTools \
--configuration Release \
--destination 'generic/platform=iOS Simulator' \
--archivePath './build/PDFTools.framework-iphonesimulator.xcarchive' \
--quiet \
-SKIP_INSTALL=NO \
-BUILD_LIBRARY_FOR_DISTRIBUTION=YES
+   rm -r "${archives[$ix]}"
+   
+   #
+   # Rebuild the framework first
+   #
+   echo "Build the framework for ${destinations[$ix]}"
 
+   xcodebuild archive \
+   -scheme $scheme \
+   -configuration Release \
+   -destination "${destinations[$ix]}" \
+   -archivePath "${archives[$ix]}" \
+   -quiet \
+   SKIP_INSTALL=NO \
+   BUILD_LIBRARY_FOR_DISTRIBUTION=YES
+
+   #
+   # Then rebuild the documentation
+   #
+   echo "Build documentation for ${destinations[$ix]}"
+
+   xcodebuild docbuild \
+   -scheme $scheme \
+   -destination "${destinations[$ix]}" \
+   -quiet
+
+done
+
+#
+# Now that the framework archives have been built, create the xcframework
+#
+# Note, we are building a parameter list for xcodebuild and the parameters will
+# contain spaces. So, we cannot use string concatenation or zsh will surround the
+# resulting string with quotes. The only legitimate way to get round this is to
+# build an array of  command line options and unwrap that.
 echo '*** Delete xcframework and rebuild'
-rm -r './build/PDFTools.xcframework'
+rm -r "${xcframework}"
 
-xcodebuild -create-xcframework \
--framework './build/PDFTools.framework-iphoneos.xcarchive/Products/Library/Frameworks/PDFTools.framework' \
--framework './build/PDFTools.framework-iphonesimulator.xcarchive/Products/Library/Frameworks/PDFTools.framework' \
--output './build/PDFTools.xcframework'
+params=("-create-xcframework")
+for fwk in "${frameworks[@]}"
+do
+	params+=("-framework" "${fwk}")
+done
+params+=("-output" "${xcframework}")
+
+xcodebuild ${params[@]}
