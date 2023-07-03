@@ -59,6 +59,23 @@ public class PDFSetCursor: PDFElement {
     }
 }
 
+/// Sets the certical position on the page for the next element.
+public class PDFSpacer: PDFElement {
+    let gap: CGFloat
+
+    /// Initialise the PDFpacer PDF Element.
+    /// - Parameter gap: Defines the amount of vertical space to add to the cursor.
+    /// If the cursor position takes the page over the bottom of the page, a new page will
+    /// be created and the cursor set to the top of it.
+    public init(gap: CGFloat) {
+        self.gap = gap
+    }
+
+    override public func render(context: UIGraphicsPDFRendererContext, pageData: PDFPageData) {
+        pageData.cursor = context.checkContext(pageData: pageData, newCursor: pageData.cursor + gap)
+    }
+}
+
 /// Draws a line in to the output document. You can optionally set the start point and end point of the line and
 /// the width of the line to be drawn. If there options are omitted, the line will be drawn from one side of the
 /// page to the other with a 2 point line.

@@ -34,6 +34,7 @@ struct TestGenerator: View {
         generator.document.add(PDFParagraph(style: .subtitle, text: "CAA-12345-FJW"))
         generator.document.add(PDFImage(image: UIImage(named: "waitingInLine")!))
         generator.document.add(PDFLine(lineWidth: 4))
+        generator.document.add(PDFSpacer(gap: 10))
 
         generator.document.add(PDFParagraph(style: .heading1, text: "Pilot Biography"))
         generator.document.add(PDFParagraph(style: .normal, text: "Brief introduction to the pilot and some of" +
