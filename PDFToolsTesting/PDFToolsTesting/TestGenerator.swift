@@ -42,6 +42,10 @@ struct TestGenerator: View {
         generator.document.add(PDFNewPage())
         generator.document.add(PDFParagraph(style: .heading1, text: "Life Story"))
         generator.document.add(PDFParagraph(style: .heading2, text: "The abridged version"))
+        generator.document.add(PDFLabelledText(label: "Address", content: "Line 1\nLine 2\nLine 3", labelWidth: 110))
+        generator.document.add(PDFLabelledText(label: "Phone (Home)", content: "0121 733 1212", labelWidth: 110))
+        generator.document.add(PDFLabelledText(label: "Phone (mobile)", content: "07811 221 991", labelWidth: 110))
+        generator.document.add(PDFLabelledText(label: "Email", content: "test@example.com", labelWidth: 110))
         generator.document.add(PDFParagraph(style: .normal, text: "yegr gyigeiuyi uy iyiueyiey iueiuyreiuyriyr iuey riueyiur y" +
                                        "gf eiuh euihfyoeihfio ueioufioeu iouoeiueioy oioihihfiueiour eio" +
                                        "iufge iehueyhoi eu ir ueriuepiuue ieuoifeoiueiour ueiur irue i uiu.\n\n" +

@@ -99,6 +99,27 @@ extension UIGraphicsPDFRendererContext {
                                             newCursor: rect.origin.y + textHeight + style.spaceAfter)
     }
 
+    func textHeight(pageData: PDFPageData, text: String, inStyle style: PDFParagraphStyle) -> CGFloat {
+        let textFont = UIFont.systemFont(ofSize: style.fontSize, weight: style.fontWeight)
+
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.alignment = style.allignment
+        paragraphStyle.lineBreakMode = .byWordWrapping
+
+        let pdfText = NSMutableAttributedString(string: text, attributes: [
+            NSAttributedString.Key.paragraphStyle: paragraphStyle,
+            NSAttributedString.Key.font: textFont,
+            NSAttributedString.Key.foregroundColor: style.foregroundColor
+        ])
+
+        if let underline = style.underline {
+            let underlineAttribute = [NSAttributedString.Key.underlineStyle: underline.rawValue]
+            pdfText.addAttributes(underlineAttribute, range: NSRange(location: 0, length: text.count))
+        }
+
+        return pdfText.height(withConstraintWidth: pageData.pageRect.width - pageData.margins)
+    }
+
     func checkContext(pageData: PDFPageData, newCursor: CGFloat) -> CGFloat {
         if newCursor > pageData.pageRect.height - pageData.bottomMargin {
             newPage(pageData: pageData)
