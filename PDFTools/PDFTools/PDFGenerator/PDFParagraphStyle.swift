@@ -75,7 +75,7 @@ public enum ParagraphStyles {
     var subtitleStyle: PDFParagraphStyle {
         return PDFParagraphStyle(
             fontWeight: .bold,
-            fontSize: 32,
+            fontSize: 38,
             foregroundColor: .black,
             allignment: .center)
     }
@@ -83,8 +83,8 @@ public enum ParagraphStyles {
     var heading1Style: PDFParagraphStyle {
         return PDFParagraphStyle(
             fontWeight: .bold,
-            fontSize: 28,
-            foregroundColor: UIColor(red: 70/256, green: 114/256, blue: 255/256, alpha: 1),
+            fontSize: 30,
+            foregroundColor: .blue,
             allignment: .left,
             underline: .thick,
             spaceAfter: 18)
@@ -93,8 +93,8 @@ public enum ParagraphStyles {
     var heading2Style: PDFParagraphStyle {
         return PDFParagraphStyle(
             fontWeight: .bold,
-            fontSize: 24,
-            foregroundColor: UIColor(red: 70/256, green: 114/256, blue: 255/256, alpha: 1),
+            fontSize: 28,
+            foregroundColor: .blue,
             allignment: .left,
             underline: .thick,
             spaceAfter: 14)
@@ -103,8 +103,8 @@ public enum ParagraphStyles {
     var heading3Style: PDFParagraphStyle {
         return PDFParagraphStyle(
             fontWeight: .regular,
-            fontSize: 20,
-            foregroundColor: UIColor(red: 70/256, green: 114/256, blue: 255/256, alpha: 1),
+            fontSize: 24,
+            foregroundColor: .blue,
             allignment: .left,
             underline: .single,
             spaceAfter: 12)
@@ -113,8 +113,8 @@ public enum ParagraphStyles {
     var heading4Style: PDFParagraphStyle {
         return PDFParagraphStyle(
             fontWeight: .regular,
-            fontSize: 18,
-            foregroundColor: UIColor(red: 70/256, green: 114/256, blue: 255/256, alpha: 1),
+            fontSize: 22,
+            foregroundColor: .blue,
             allignment: .left,
             spaceAfter: 10)
     }
@@ -122,8 +122,8 @@ public enum ParagraphStyles {
     var normalStyle: PDFParagraphStyle {
         return PDFParagraphStyle(
             fontWeight: .regular,
-            fontSize: 11,
-            foregroundColor: UIColor(red: 48/256, green: 48/256, blue: 48/256, alpha: 1),
+            fontSize: 13,
+            foregroundColor: .black,
             allignment: .left)
     }
 
