@@ -177,6 +177,59 @@ public class PDFParagraph: PDFElement {
     }
 }
 
+public class PDFLabelledText: PDFElement {
+    var label: String
+    var content: String
+    var labelWidth: CGFloat
+    var labelSpace: CGFloat
+    var style: PDFParagraphStyle
+
+    public init(label: String, content: String, labelWidth: CGFloat = 80, labelSpace: CGFloat = 10) {
+        self.label = label
+        self.content = content
+        self.labelWidth = labelWidth
+        self.labelSpace = labelSpace
+        self.style = ParagraphStyles.normal.style()
+    }
+
+    override public func render(context: UIGraphicsPDFRendererContext, pageData: PDFPageData) {
+        let savedCursor = pageData.cursor
+        let savedLeftMargin = pageData.leftMargin
+
+        let textItems = content.split(separator: "\n", omittingEmptySubsequences: true)
+        guard textItems.count > 0 else { return }
+
+        checkAvailableSpace(context: context, pageData: pageData, firstItem: String(textItems[0]))
+
+        context.text(pageData: pageData, text: label, inStyle: style)
+        pageData.cursor = savedCursor
+        pageData.leftMargin += labelWidth + labelSpace
+
+        for text in textItems {
+            let paraText = String(text)
+            context.text(pageData: pageData, text: paraText, inStyle: style)
+        }
+
+        pageData.leftMargin = savedLeftMargin
+    }
+
+    // Make sure the first part of the content will fir on the current page. If it won't, then we need to
+    // start onm a new page so the label and the first line of the content will always appear on the
+    // same page.
+    private func checkAvailableSpace(context: UIGraphicsPDFRendererContext, pageData: PDFPageData, firstItem itemText: String) {
+        let savedLeftMargin = pageData.leftMargin
+        pageData.leftMargin += labelWidth + labelSpace
+
+        let firstItemHeight = context.textHeight(pageData: pageData, text: itemText, inStyle: ParagraphStyles.normal.style())
+        let spaceLeft = pageData.pageRect.height - pageData.bottomMargin - pageData.cursor
+        if spaceLeft < firstItemHeight {
+            context.newPage(pageData: pageData)
+        }
+
+        pageData.leftMargin = savedLeftMargin
+    }
+}
+
 /// Defines an image to be added to the PDF.
 public class PDFImage: PDFElement {
 
