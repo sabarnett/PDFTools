@@ -27,6 +27,8 @@ struct TestGenerator: View {
         let generator = PDFGenerator(creator: "Test App",
                                      author: "Steve",
                                      title: "Test PDF File")
+        generator.setPageSize(.Letter)
+        generator.setMargins(vertical: 40, horizontal: 40)
 
         generator.document.add(PDFSetCursor(newCursor: 200))
         generator.document.add(PDFBox(height: 40))

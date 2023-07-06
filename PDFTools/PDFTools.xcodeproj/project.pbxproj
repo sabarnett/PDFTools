@@ -16,6 +16,10 @@
 		E808093D2A4DB7D70020462D /* PDFGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E80809372A4DB7D70020462D /* PDFGenerator.swift */; };
 		E808093E2A4DB7D70020462D /* PDFContext+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E80809382A4DB7D70020462D /* PDFContext+Extensions.swift */; };
 		E808093F2A4DB7D70020462D /* PDFObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = E80809392A4DB7D70020462D /* PDFObjects.swift */; };
+		E85ADDB12A570ABB00688A60 /* PDFElementArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = E85ADDB02A570ABB00688A60 /* PDFElementArray.swift */; };
+		E85ADDB52A570B6300688A60 /* PDFParagraphStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = E85ADDB42A570B6300688A60 /* PDFParagraphStyles.swift */; };
+		E85ADDB72A570C4500688A60 /* PDFFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = E85ADDB62A570C4500688A60 /* PDFFile.swift */; };
+		E85ADDBB2A5714DD00688A60 /* PDFPageSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = E85ADDBA2A5714DD00688A60 /* PDFPageSize.swift */; };
 		E8D014E72A4DB134009509C4 /* PDFTools.docc in Sources */ = {isa = PBXBuildFile; fileRef = E8D014E62A4DB134009509C4 /* PDFTools.docc */; };
 		E8D014E82A4DB134009509C4 /* PDFTools.h in Headers */ = {isa = PBXBuildFile; fileRef = E8D014E52A4DB134009509C4 /* PDFTools.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E8DE3C8E2A4DCA9800C3EE65 /* PDFPageData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8DE3C8D2A4DCA9800C3EE65 /* PDFPageData.swift */; };
@@ -31,6 +35,10 @@
 		E80809372A4DB7D70020462D /* PDFGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PDFGenerator.swift; sourceTree = "<group>"; };
 		E80809382A4DB7D70020462D /* PDFContext+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PDFContext+Extensions.swift"; sourceTree = "<group>"; };
 		E80809392A4DB7D70020462D /* PDFObjects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PDFObjects.swift; sourceTree = "<group>"; };
+		E85ADDB02A570ABB00688A60 /* PDFElementArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFElementArray.swift; sourceTree = "<group>"; };
+		E85ADDB42A570B6300688A60 /* PDFParagraphStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFParagraphStyles.swift; sourceTree = "<group>"; };
+		E85ADDB62A570C4500688A60 /* PDFFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFFile.swift; sourceTree = "<group>"; };
+		E85ADDBA2A5714DD00688A60 /* PDFPageSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFPageSize.swift; sourceTree = "<group>"; };
 		E8D014E22A4DB134009509C4 /* PDFTools.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PDFTools.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8D014E52A4DB134009509C4 /* PDFTools.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PDFTools.h; sourceTree = "<group>"; };
 		E8D014E62A4DB134009509C4 /* PDFTools.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = PDFTools.docc; sourceTree = "<group>"; };
@@ -62,14 +70,50 @@
 		E80809322A4DB7D70020462D /* PDFGenerator */ = {
 			isa = PBXGroup;
 			children = (
-				E80809352A4DB7D70020462D /* NSAttributedString+Extension.swift */,
-				E80809362A4DB7D70020462D /* PDFParagraphStyle.swift */,
-				E80809372A4DB7D70020462D /* PDFGenerator.swift */,
-				E80809382A4DB7D70020462D /* PDFContext+Extensions.swift */,
-				E80809392A4DB7D70020462D /* PDFObjects.swift */,
-				E8DE3C8D2A4DCA9800C3EE65 /* PDFPageData.swift */,
+				E85ADDB92A570C7900688A60 /* Generator */,
+				E85ADDB82A570C6A00688A60 /* DataStructures */,
+				E85ADDB32A570B3A00688A60 /* Styles */,
+				E85ADDB22A570B2C00688A60 /* Extensions */,
 			);
 			path = PDFGenerator;
+			sourceTree = "<group>";
+		};
+		E85ADDB22A570B2C00688A60 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				E80809352A4DB7D70020462D /* NSAttributedString+Extension.swift */,
+				E80809382A4DB7D70020462D /* PDFContext+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		E85ADDB32A570B3A00688A60 /* Styles */ = {
+			isa = PBXGroup;
+			children = (
+				E80809362A4DB7D70020462D /* PDFParagraphStyle.swift */,
+				E85ADDB42A570B6300688A60 /* PDFParagraphStyles.swift */,
+			);
+			path = Styles;
+			sourceTree = "<group>";
+		};
+		E85ADDB82A570C6A00688A60 /* DataStructures */ = {
+			isa = PBXGroup;
+			children = (
+				E80809392A4DB7D70020462D /* PDFObjects.swift */,
+				E85ADDB62A570C4500688A60 /* PDFFile.swift */,
+				E8DE3C8D2A4DCA9800C3EE65 /* PDFPageData.swift */,
+				E85ADDB02A570ABB00688A60 /* PDFElementArray.swift */,
+				E85ADDBA2A5714DD00688A60 /* PDFPageSize.swift */,
+			);
+			path = DataStructures;
+			sourceTree = "<group>";
+		};
+		E85ADDB92A570C7900688A60 /* Generator */ = {
+			isa = PBXGroup;
+			children = (
+				E80809372A4DB7D70020462D /* PDFGenerator.swift */,
+			);
+			path = Generator;
 			sourceTree = "<group>";
 		};
 		E8D014D82A4DB134009509C4 = {
@@ -204,8 +248,12 @@
 				E80809302A4DB7C40020462D /* PDFViewer.swift in Sources */,
 				E808093E2A4DB7D70020462D /* PDFContext+Extensions.swift in Sources */,
 				E808092F2A4DB7C40020462D /* ShareView.swift in Sources */,
+				E85ADDB52A570B6300688A60 /* PDFParagraphStyles.swift in Sources */,
 				E808093C2A4DB7D70020462D /* PDFParagraphStyle.swift in Sources */,
 				E808093B2A4DB7D70020462D /* NSAttributedString+Extension.swift in Sources */,
+				E85ADDBB2A5714DD00688A60 /* PDFPageSize.swift in Sources */,
+				E85ADDB72A570C4500688A60 /* PDFFile.swift in Sources */,
+				E85ADDB12A570ABB00688A60 /* PDFElementArray.swift in Sources */,
 				E8D014E72A4DB134009509C4 /* PDFTools.docc in Sources */,
 				E808093F2A4DB7D70020462D /* PDFObjects.swift in Sources */,
 				E8DE3C8E2A4DCA9800C3EE65 /* PDFPageData.swift in Sources */,
