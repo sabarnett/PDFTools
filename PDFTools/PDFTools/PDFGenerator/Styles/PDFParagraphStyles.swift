@@ -51,7 +51,7 @@ public enum ParagraphStyles {
     var subtitleStyle: PDFParagraphStyle {
         return PDFParagraphStyle(
             fontWeight: .bold,
-            fontSize: 38,
+            fontSize: 32,
             foregroundColor: .black,
             allignment: .center)
     }

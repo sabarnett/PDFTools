@@ -193,13 +193,13 @@ public class PDFLabelledText: PDFElement {
     }
 
     override public func render(context: UIGraphicsPDFRendererContext, pageData: PDFPageData) {
-        let savedCursor = pageData.cursor
-        let savedLeftMargin = pageData.leftMargin
-
         let textItems = content.split(separator: "\n", omittingEmptySubsequences: true)
         guard textItems.count > 0 else { return }
 
         checkAvailableSpace(context: context, pageData: pageData, firstItem: String(textItems[0]))
+
+        let savedCursor = pageData.cursor
+        let savedLeftMargin = pageData.leftMargin
 
         context.text(pageData: pageData, text: label, inStyle: style)
         pageData.cursor = savedCursor
