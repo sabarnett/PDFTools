@@ -217,10 +217,13 @@ public class PDFLabelledText: PDFElement {
     // start onm a new page so the label and the first line of the content will always appear on the
     // same page.
     private func checkAvailableSpace(context: UIGraphicsPDFRendererContext, pageData: PDFPageData, firstItem itemText: String) {
+        let normalStyle = ParagraphStyles.normal.style()
+
         let savedLeftMargin = pageData.leftMargin
         pageData.leftMargin += labelWidth + labelSpace
 
-        let firstItemHeight = context.textHeight(pageData: pageData, text: itemText, inStyle: ParagraphStyles.normal.style())
+        let firstItemHeight = context.textHeight(pageData: pageData, text: itemText, inStyle: normalStyle)
+            + normalStyle.spaceAfter
         let spaceLeft = pageData.pageRect.height - pageData.bottomMargin - pageData.cursor
         if spaceLeft < firstItemHeight {
             context.newPage(pageData: pageData)
