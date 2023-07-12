@@ -9,6 +9,13 @@
 import Foundation
 import PDFKit
 
+public struct PageMargins {
+    public var left: CGFloat
+    public var right: CGFloat
+    public var top: CGFloat
+    public var bottom: CGFloat
+}
+
 public class PDFGenerator {
 
     var creator: String = "PDFGenerator"
@@ -33,6 +40,17 @@ public class PDFGenerator {
 
     public var document: PDFElementArray {
         pdfDocument.document
+    }
+
+    public var pageLayout: PDFPageData {
+        return PDFPageData(
+            pageRect: CGRect(x: 0, y: 0,
+                             width: pageWidth, height: pageHeight),
+            topMargin: self.topMargin,
+            bottomMargin: self.bottomMargin,
+            leftMargin: self.leftMargin,
+            rightMargin: self.rightMargin
+        )
     }
 
     public func clear() {

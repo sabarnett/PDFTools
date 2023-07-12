@@ -7,13 +7,13 @@
 //
 
 public class PDFPageData {
-    var cursor: CGFloat
-    var pageRect: CGRect
-    var topMargin: CGFloat
-    var bottomMargin: CGFloat
-    var leftMargin: CGFloat
-    var rightMargin: CGFloat
-    var pageNumber: Int
+    public var cursor: CGFloat
+    public var pageRect: CGRect
+    public var topMargin: CGFloat
+    public var bottomMargin: CGFloat
+    public var leftMargin: CGFloat
+    public var rightMargin: CGFloat
+    public var pageNumber: Int
 
     public init(pageRect: CGRect,
                 topMargin: CGFloat = 32,
@@ -29,5 +29,5 @@ public class PDFPageData {
         self.pageNumber = 0
     }
 
-    var margins: CGFloat { leftMargin + rightMargin }
+    public var margins: CGFloat { leftMargin + rightMargin }
 }
