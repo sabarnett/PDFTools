@@ -96,7 +96,6 @@ public class PDFGenerator {
 
 extension PDFGenerator {
     public func setPageSize(width: CGFloat, height: CGFloat) {
-        // TODO: Some validation to make sure we get sensible numbers
         self.pageWidth = width
         self.pageHeight = height
     }
@@ -108,7 +107,6 @@ extension PDFGenerator {
     }
 
     public func setMargins(vertical verticalMargin: CGFloat, horizontal horizontalMargin: CGFloat) {
-        // TODO: Some validation to ensure sensible values.
         self.topMargin = verticalMargin
         self.bottomMargin = verticalMargin
 
